@@ -1,0 +1,42 @@
+<app-header></app-header>
+<app-child [myInput]="myInputText" (myOutput)="getData($event) "> </app-child>
+
+
+<div class="container mt-4">
+    <!-- <course></course> -->
+<router-outlet></router-outlet>
+</div>
+
+<!--pipe-->
+<div class="container">
+    <app-aboutservice></app-aboutservice>
+<table class="table table-bordered">
+        <tr>
+            <th>name</th>
+            <th>doj</th>
+            <th>sal</th>
+        </tr>
+        <tr>
+            <td>{{emp.name|uppercase}}</td>
+            <td>{{emp.doj|date:'shortDate'}}</td>
+            <td>{{emp.sal|currency:'INR'}}</td>
+        </tr>
+</table>
+</div>
+
+<p>{{text|summary}}</p>
+
+
+<!--to create an api-->
+<div class="container">
+<input type="text" class="form control mt-4" #title (keyup.enter)="createData(title)">
+    <ul class="list group"> 
+            <th><li class="list-group-item mt-4" *ngFor="let post of posts">
+           <h1>{{post.title}}</h1>
+              <p>{{post.body}}</p>
+              <button class="btn btn-danger float-right" (click)="removeData(post)">Delete</button>
+        </li>
+    </ul>
+</div>
+
+

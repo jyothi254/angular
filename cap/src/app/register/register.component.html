@@ -1,0 +1,34 @@
+<div class="col-md-4 offset-4 mt-4 card">
+  <div class="card-body">
+    <h1 class="h1 text-center">Register</h1>
+
+    <form action="" method="GET" [formGroup]="form">
+      <div class="form-group">
+        <label for="username">username</label>
+        <!-- <input formControlName="username" type="text" [(ngModel])="model.username" name="username" class="form-control"
+          id="username" #username="ngModel" pattern="[]"> -->
+
+        <div class="alert alert-danger mt-2" 
+        *ngIf="form.GET('username').touched && form.GET('username').inavlid">required
+        </div>
+
+        <!-- <div class="alert alert-danger mt-2" *ngIf="username.touched && username.invalid">required
+          <p *ngIf="username.errors.minlength">min 3 char</p>
+          <p *ngIf="username.errors.pattern">not match</p>
+        </div> -->
+      </div>
+      <div class="form-group">
+        <label for="password">password</label>
+        <input formControlName="password" type="password" class="form-control" id="password">
+
+        <div class="alert alert-danger mt-2" *ngIf="password.touched && password.invalid">required
+          <p *ngIf="password.errors.minlength">min 3 char</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="submit" class="btn btn-primary float-right">
+      </div>
+
+    </form>
+  </div>
+</div>
